@@ -6,7 +6,7 @@ services:
     container_name: voip-answering-machine
     ports:
       - "5060:5060/udp"  # SIP
-      - "10000-20000:10000-20000/udp"  # RTP
+      - "10000-10001:10000-10001/udp"  # RTP
     volumes:
       - ./recordings:/var/spool/asterisk/recording
       - ./logs:/var/log/asterisk
