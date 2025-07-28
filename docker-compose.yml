@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   voip-answering-machine:
-    build: .
-    container_name: voip-answering-machine
+    image: docker pull ghcr.io/nerdscorp/voip-answering-machine:latest
+    #image: docker pull ghcr.io/nerdscorp/voip-answering-machine:Dev
     ports:
       - "5060:5060/udp"  # SIP
       - "10000-10001:10000-10001/udp"  # RTP
