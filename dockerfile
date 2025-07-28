@@ -16,7 +16,8 @@ RUN pip3 install requests python-dotenv
 # Create directories
 RUN mkdir -p /var/spool/asterisk/recording \
     && mkdir -p /etc/asterisk/custom \
-    && mkdir -p /opt/voip-scripts
+    && mkdir -p /opt/voip-scripts \
+    && mkdir -p /var/log/asterisk/cdr-csv && chown -R asterisk:asterisk /var/log/asterisk
 
 # Copy configuration files
 COPY asterisk/ /etc/asterisk/
@@ -33,6 +34,6 @@ RUN chown -R asterisk:asterisk /var/spool/asterisk \
     && chown -R asterisk:asterisk /etc/asterisk \
     && chown -R asterisk:asterisk /opt/voip-scripts
 
-EXPOSE 5060/udp 10000-20000/udp
+EXPOSE 5060/udp 10000-10001/udp
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
